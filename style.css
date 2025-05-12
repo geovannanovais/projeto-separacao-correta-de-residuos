@@ -3,26 +3,31 @@ body {
   font-family: Arial, sans-serif;
   background: #f4f4f4;
   color: #333;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 img {
   width: auto;
   height: 100%;
   image-rendering: optimizeQuality;
+  max-width: 100%;
+  height: auto;
 }
 
 .header .container.header‐flex {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
+  gap: 1rem;
 }
 
 .branding {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .logo {
@@ -40,7 +45,9 @@ a {
   text-decoration: none;
   outline: none;
 }
-a:focus, a:active {
+
+a:focus,
+a:active {
   outline: none;
 }
 
@@ -125,4 +132,49 @@ iframe {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .header .container.header‐flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .branding {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .site-title {
+    font-size: 1rem;
+  }
+
+  a.botao {
+    width: 100%;
+    text-align: center;
+  }
+
+  iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-title {
+    font-size: 0.9rem;
+  }
+
+  .logo {
+    height: 40px;
+  }
+
+  .section {
+    padding: 1rem 0;
+  }
 }
